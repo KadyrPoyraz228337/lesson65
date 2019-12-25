@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import {Container} from "reactstrap";
 import Page from "./Components/Page/Page";
+import Edit from "./Components/Edit/Edit";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Container>
                 <Switch>
                     <Route path='/' exact component={Page}/>
+                    <Route path='/admin' component={Edit}/>
                     <Route path='/:pageName' component={Page}/>
                 </Switch>
             </Container>
