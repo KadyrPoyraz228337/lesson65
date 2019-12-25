@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Nav} from "reactstrap";
 import axios from 'axios';
+import ToolbarItem from "./ToolbarItem/ToolbarItem";
 
 class Toolbar extends Component {
     state = {
@@ -15,7 +16,13 @@ class Toolbar extends Component {
     render() {
         return this.state.pages && (
             <Nav className="ml-auto" navbar>
-
+                {this.state.pages.map(page => {
+                    return (
+                        <ToolbarItem key={page} to={`/${page}`}>
+                            {page}
+                        </ToolbarItem>
+                    )
+                })}
             </Nav>
         )
     }
