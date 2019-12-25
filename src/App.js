@@ -7,6 +7,7 @@ import {
     Route,
 } from "react-router-dom";
 import {Container} from "reactstrap";
+import Page from "./Components/Page/Page";
 
 
 function App() {
@@ -15,7 +16,10 @@ function App() {
         <Router>
             <Navigation/>
             <Container>
-
+                <Switch>
+                    <Route path='/' exact component={Page}/>
+                    <Route path='/:pageName' component={Page}/>
+                </Switch>
             </Container>
         </Router>
     </div>

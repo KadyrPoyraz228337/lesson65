@@ -1,28 +1,18 @@
 import React, {Component} from 'react';
 import {Nav} from "reactstrap";
-import axios from 'axios';
 import ToolbarItem from "./ToolbarItem/ToolbarItem";
 
 class Toolbar extends Component {
-    state = {
-      pages: null,
-    };
-    async componentDidMount() {
-        const resp = await axios('https://lesson-65-kadyr.firebaseio.com/pages.json');
-        const pages = Object.keys(resp.data);
-        this.setState({pages});
-    }
 
     render() {
-        return this.state.pages && (
+        return (
             <Nav className="ml-auto" navbar>
-                {this.state.pages.map(page => {
-                    return (
-                        <ToolbarItem key={page} to={`/${page}`}>
-                            {page}
-                        </ToolbarItem>
-                    )
-                })}
+                <ToolbarItem to='/'>Home</ToolbarItem>
+                <ToolbarItem to='/about'>About</ToolbarItem>
+                <ToolbarItem to='/contacts'>Contacts</ToolbarItem>
+                <ToolbarItem to='/division'>Division</ToolbarItem>
+                <ToolbarItem to='/blog'>Blog</ToolbarItem>
+                <ToolbarItem to='/admin'>Admin</ToolbarItem>
             </Nav>
         )
     }

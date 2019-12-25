@@ -1,13 +1,15 @@
 import React from 'react';
-import {Container, NavItem} from "reactstrap";
+import {NavItem} from "reactstrap";
 import {NavLink} from "react-router-dom";
+import './ToolbarItem.css'
 
 const ToolbarItem = (
     {children, to}
 ) => {
+    const path = to === '/' ? '/' : to;
     return (
         <NavItem className='ml-2'>
-            <NavLink to={to}>{children}</NavLink>
+            <NavLink to={path} exact>{children}</NavLink>
         </NavItem>
     );
 };
